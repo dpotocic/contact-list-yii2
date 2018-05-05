@@ -70,7 +70,9 @@
 
 ## <a name="docs"></a>Swagger API documentation
 
-To generate Swagger API docs in [advanced/api/web/swagger.json](advanced/api/web/swagger.json), run:
+    * [Swagger docs at api.contact-list.loc/doc](https://api.contact-list.loc/doc)
+
+To generate Swagger API docs in [/api/web/swagger.json](/api/web/swagger.json), run:
 
 ```
 Unix based
