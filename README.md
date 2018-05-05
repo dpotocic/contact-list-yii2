@@ -17,11 +17,11 @@
 
 ## <a name="local"></a>Local env setup
 
-    1. Clone this repo: `git clone git@gitlab.com:dpotocic/firs.git`
-    2. Move into newly created directory: `cd firs/`
-    3. Install dependencies using [Composer](https://getcomposer.org/): `composer global require "fxp/composer-asset-plugin:^1.2" && composer install` (or if using vagrant run this in vagrant /var/ww/html directory)
-    4. Create an Apache VirtualHost and `ServerName firs.loc` and `DocumentRoot` pointing to [`frontend/web/`](frontend/web/) (skip if using Vagrant)
-    5. Map domain `firs.loc` domain to local server's IP `127.0.0.1` using your systems `hosts` file
+    1. Clone this repo: `git clone git@github.com:dpotocic/contact-list-yii2.git`
+    2. Move into newly created directory: `cd contact-list-yii2/`
+    3. Install dependencies using [Composer](https://getcomposer.org/): `composer install` (or if using vagrant run this in vagrant /var/www/html directory)
+    4. Create an Apache VirtualHost and `ServerName api.contact-list.loc` and `DocumentRoot` pointing to [`api/web/`](api/web/) (skip if using Vagrant)
+    5. Map domain `api.customer-list.loc` domain to local server's IP `127.0.0.1` using your systems `hosts` file
 
 ### Getting started
 
@@ -29,19 +29,9 @@
 
     1. Run [`init`](init) ('php init' in vagrant) to initialize the application with dev environment
     2. Apply migrations with `php yii migrate`. This will create tables needed for the application to work
-    3. Run `php yii rbac/init` to initialize the RBAC user roles (skip for now)
-    4. `yii migrate --migrationPath=@vendor/filsh/yii2-oauth2-server/migrations`
-    5. `php yii rbac/init`
-    6. Create user, enter the command and follow the instructions: `php yii user/create`
-     - Username: set username (admin);
-     - Email: set email (admin@example.com);
-     - Password: set password (min 6 symbol);
-     - Status: set status (0 - blocked, 1 - active, 2 - wait, ? - Help);
-    7. Assign role admin: php yii rbac/roles/assign
 
     Your webapp is now available (Vagrant):
-       * Frontend: http://api.contact-list.loc:8080/
-       * Backend (new administration): http://firs.loc:8080/backend/
+       * API End Point: http://api.contact-list.loc/
 
 ## <a name="vagrant"></a>Vagrant server setup instructions
 

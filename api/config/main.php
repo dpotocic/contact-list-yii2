@@ -14,7 +14,7 @@ return [
     'defaultRoute' => 'v1/default',
     'modules' => [
         'v1' => [
-            'basePath' => '@app/modules/v1',
+            //'basePath' => '@app/modules/v1',
             'class' => \api\modules\v1\Module::className(),
         ]
     ],
@@ -44,6 +44,7 @@ return [
         ],
         'urlManager' => [
 			'rules' => [
+                '<action:[\w\-]+>' => 'site/<action>',
                 '<controller:\w+>/<id:[\d\-]+>' => 'v1/<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:[\d\-]+>' => 'v1/<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => 'v1/<controller>/<action>',

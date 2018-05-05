@@ -1,0 +1,136 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "CONTACT LIST API",
+        "description": "CONTACT LIST",
+        "termsOfService": "http://example.com/terms-of-use/",
+        "contact": {
+            "name": "D.P."
+        },
+        "license": {
+            "name": "Commercial"
+        },
+        "version": "1.0.0"
+    },
+    "host": "api.customer-list.loc",
+    "basePath": "/v1",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/contact/search": {
+            "post": {
+                "tags": [
+                    "contact"
+                ],
+                "summary": "Search contact list",
+                "operationId": "search",
+                "parameters": [
+                    {
+                        "name": "",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NewContact"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Error": {
+            "required": [
+                "code",
+                "message"
+            ],
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NewContact": {
+            "required": [
+                "email"
+            ],
+            "properties": {
+                "first_name": {
+                    "description": "Contact first name",
+                    "type": "string",
+                    "format": "string",
+                    "example": "John"
+                },
+                "last_name": {
+                    "description": "Contact last name",
+                    "type": "number",
+                    "format": "string",
+                    "example": "Doe"
+                },
+                "profile_photo": {
+                    "description": "Link to avatar image",
+                    "type": "string",
+                    "format": "string",
+                    "example": "http://avatar.com/img.jpg"
+                },
+                "email": {
+                    "description": "Email",
+                    "type": "string",
+                    "format": "string",
+                    "example": "email@example.com"
+                }
+            },
+            "type": "object"
+        },
+        "Contact": {
+            "properties": {
+                "id": {
+                    "type": "int",
+                    "format": "integer"
+                },
+                "first_name": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "last_name": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "profile_photo": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "email": {
+                    "type": "string",
+                    "format": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
