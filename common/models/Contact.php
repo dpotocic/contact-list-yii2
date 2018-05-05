@@ -54,4 +54,12 @@ class Contact extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getContactPhone()
+    {
+        return $this->hasMany(ContactPhone::className(), ['contact_id' => 'id']);
+    }
 }

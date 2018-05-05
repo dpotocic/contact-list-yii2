@@ -2,7 +2,7 @@
 namespace api\modules\v1\controllers;
 
 use api\models\Contact;
-use common\models\search\ContactSearch;
+use api\models\search\ContactSearch;
 use yii\filters\AccessControl;
 use Yii;
 

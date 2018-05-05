@@ -32,6 +32,9 @@ class Contact extends \common\models\Contact
             'last_name',
             'profile_photo',
             'email',
+            'phones' => function($model){
+                    return $model->contactPhone;
+                },
         ];
     }
 

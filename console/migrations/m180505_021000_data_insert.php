@@ -69,6 +69,68 @@ class m180505_021000_data_insert extends Migration
             ],
             $data
         );
+
+        $data = [
+            [
+                'label' => 'HOME',
+                'phone_number' => '123 456',
+                'contact_id' => 1,
+            ],
+            [
+                'label' => 'HOME NEW',
+                'phone_number' => '231 232',
+                'contact_id' => 1,
+            ],
+            [
+                'label' => 'FAX',
+                'phone_number' => '123 456',
+                'contact_id' => 1,
+            ],
+            [
+                'label' => 'WORK',
+                'phone_number' => '123 456',
+                'contact_id' => 2,
+            ],
+            [
+                'label' => 'XY',
+                'phone_number' => '345 43 444',
+                'contact_id' => 3,
+            ],
+            [
+                'label' => 'MAIN',
+                'phone_number' => '123 456',
+                'contact_id' => 4,
+            ],
+            [
+                'label' => 'HOME HOME',
+                'phone_number' => '234 555',
+                'contact_id' => 5,
+            ],
+            [
+                'label' => 'HOME HOME',
+                'phone_number' => '234 2423',
+                'contact_id' => 5,
+            ],
+            [
+                'label' => 'HOME HOME',
+                'phone_number' => '356896 56',
+                'contact_id' => 5,
+            ],
+            [
+                'label' => 'HOME HOME',
+                'phone_number' => '56 5675 6',
+                'contact_id' => 5,
+            ],
+        ];
+
+        $this->batchInsert('contact_phone',
+            [
+                'label',
+                'phone_number',
+                'contact_id',
+            ],
+            $data
+        );
     }
 
     public function down()
