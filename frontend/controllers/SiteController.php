@@ -65,9 +65,20 @@ class SiteController extends Controller
         ];
     }
 
+    /**
+     * @return string
+     */
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    /**
+     * @return string
+     */
+    public function actionMyFavorite()
+    {
+        return $this->render('my-favorite');
     }
 
     public function actionLogin()

@@ -17,6 +17,7 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -24,52 +25,70 @@ AppAsset::register($this);
 <body>
     <?php $this->beginBody() ?>
     <div class="wrap">
-        <?php
-            NavBar::begin([
-                'brandLabel' => 'My Company',
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
-                ],
-            ]);
-            $menuItems = [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'About', 'url' => ['/site/about']],
-                ['label' => 'Contact', 'url' => ['/site/contact']],
-            ];
-            if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-            } else {
-                $menuItems[] = [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ];
-            }
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => $menuItems,
-            ]);
-            NavBar::end();
-        ?>
+        <nav class="navbar-typeqast navbar-fixed-top navbar">
+            <div class="container">
+                <div class="navbar-header" style="text-align: center;">
+                    <a class="navbar-brand" href="/">TYPEQAST</a>
+                </div>
+            </div>
+        </nav>
 
         <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
         <?= $content ?>
         </div>
     </div>
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; TYPEQAST <?= date('Y') ?></p>
         <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
-
+    <style>
+        body{
+            background: #eee;
+            font-family: 'Open Sans';
+        }
+        .navbar-typeqast{
+            background-color: #49ACB5;
+            border-bottom: 5px solid #89CBD0;
+        }
+        .navbar-brand{
+            float: none;
+        }
+        .navbar-header{
+            margin: 10px auto !important;
+            width: 200px;
+            float: none !important;
+        }
+        .navbar-typeqast a{
+            color: #fff;
+        }
+        .navbar-typeqast a:hover{
+            color: #eee;
+        }
+        hr{
+            border: 2px solid #83C8CF;
+        }
+        a.active{
+            color: #77C2CA;
+            font-weight: bold;
+        }
+        a{
+            color: #C0C8C7;
+        }
+        input{
+            text-align: center;
+            padding: 5px;
+        }
+        .main-links .header-container{
+            display: block;
+            margin: 0 auto;
+        }
+        .main-links input{
+            width: 100%;
+        }
+    </style>
     <?php $this->endBody() ?>
 </body>
 </html>

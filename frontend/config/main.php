@@ -28,6 +28,9 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'assetManager' => [
+            'linkAssets' => false,
+        ],
     ],
     'modules' => [
         'gii' => [

@@ -23,6 +23,18 @@ class ContactController extends \api\rest\ActiveController
                 ],
             ],
         ];
+        $behaviors['corsFilter'] = [
+            'class' => \yii\filters\Cors::className(),
+            'cors' => [
+                // restrict access to
+                'Origin' => ['http://contact-list.loc:8080', 'http://contact-list.loc'],
+                // Allow OPTIONS caching
+                'Access-Control-Max-Age' => 3600,
+                // Allow the X-Pagination-Current-Page header to be exposed to the browser.
+                'Access-Control-Expose-Headers' => ['X-Pagination-Current-Page'],
+            ],
+
+        ];
 
         return $behaviors;
     }

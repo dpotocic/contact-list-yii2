@@ -28,3 +28,4 @@ mysql -uroot -ppassword -e "CREATE DATABASE IF NOT EXISTS contact_list"
 php /var/www/html/yii migrate --interactive=0
 php /var/www/html/yii fixture/generate-all --templatePath=@tests/common/templates --count=10
 
+

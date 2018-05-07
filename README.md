@@ -4,8 +4,9 @@
 
   1. [Requirements](#requirements)
   2. [Local env setup](#local)
-  2. [Vagrant setup](#vagrant)
-  7. [Documentation](#docs)
+  3. [Vagrant setup](#vagrant)
+  4. [Documentation](#docs)
+  5. [Screens](#screens)
 
 [![Yii2](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](http://www.yiiframework.com/)
 
@@ -31,7 +32,8 @@
     2. Apply migrations with `php yii migrate`. This will create tables needed for the application to work
 
     Your webapp is now available (Vagrant):
-       * API End Point: http://api.contact-list.loc/
+       * API End Point: http://api.contact-list.loc:8080/
+       * Front End: http://contact-list.loc:8080/
 
 ## <a name="vagrant"></a>Vagrant server setup instructions
 
@@ -71,7 +73,7 @@
 ## <a name="docs"></a>Swagger API documentation
 
 ### Docs
-    * [Swagger docs](https://api.contact-list.loc/doc) at api.contact-list.loc/doc
+    * [Swagger docs](http://api.contact-list.loc:8080/doc) at api.contact-list.loc:8080/doc
 
 To generate Swagger API docs in [/api/web/swagger.json](/api/web/swagger.json), run:
 
@@ -81,3 +83,8 @@ Unix based
 Win based
 vendor\bin\swagger.bat ./api --output api/web/swagger.json
 ```
+
+## <a name="screens"></a>Demo screens
+
+http://prntscr.com/jelpte
+http://prntscr.com/jelq0t

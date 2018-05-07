@@ -12,6 +12,9 @@ use api\models\Contact;
  */
 class ContactSearch extends Contact
 {
+
+    public $searchValue = null;
+
     /**
      * @inheritdoc
      */
@@ -19,7 +22,7 @@ class ContactSearch extends Contact
     {
         return [
             [['id', 'status'], 'integer'],
-            [['first_name', 'last_name', 'profile_photo', 'email', 'created_at'], 'safe'],
+            [['first_name', 'last_name', 'profile_photo', 'email', 'created_at', 'searchValue'], 'safe'],
         ];
     }
 
@@ -68,6 +71,13 @@ class ContactSearch extends Contact
             ->andFilterWhere(['like', 'last_name', $this->last_name])
             ->andFilterWhere(['like', 'profile_photo', $this->profile_photo])
             ->andFilterWhere(['like', 'email', $this->email]);
+
+        if (!empty($this->searchValue)) {
+            $query->andWhere(
+                "first_name LIKE '%" . $this->searchValue . "%' OR last_name LIKE '%" . $this->searchValue . "%' OR email LIKE '%" . $this->searchValue . "%'"
+            );
+        }
+
 
         return $dataProvider;
     }

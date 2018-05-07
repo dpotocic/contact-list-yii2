@@ -1,51 +1,60 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = 'My Yii Application';
+$this->title = 'Contact list DEMO!';
 ?>
 <div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
+    <div class="main-links">
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+            <div class="col-md-4">
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+            <div class="col-md-4 text-center">
+                            <a href="/index" class="active">All contacts</a>&nbsp;|&nbsp;<a href="/my-favorite">My favorites</a>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <div class="col-md-4">
+            </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <input type="text" size="100" placeholder="Type contact name here..." id="searchValue" autocomplete="off"/>
             </div>
         </div>
 
     </div>
+
+    <div class="body-content">
+
+        <div class="row" id="contact-list">
+
+        </div>
+
+    </div>
 </div>
+<script>
+<?php
+    $this->registerJs( <<< EOT_JS_CODE
+    $(function(){
+        $('#searchValue').on('keydown',function(value){
+            console.log();
+            $.getJSON( "http://api.contact-list.loc:8080/contact/search",
+            {
+                searchValue: $(this).val(),
+            },
+            function( data ) {
+                var items = [];
+                $.each( data, function( key, val ) {
+                    items.push( "<div class='col-md-4' id='" + key + "'><strong>" + val.first_name + ' ' + val.last_name + "</strong></div>" );
+                });
+
+                $('#contact-list').html(items.join( "" ));
+
+            });
+
+        });
+    })
+EOT_JS_CODE
+);
+?>
+</script>
