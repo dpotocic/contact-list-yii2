@@ -86,5 +86,6 @@ vendor\bin\swagger.bat ./api --output api/web/swagger.json
 
 ## <a name="screens"></a>Demo screens
 
-http://prntscr.com/jelpte
-http://prntscr.com/jelq0t
+* http://prntscr.com/jelpte
+* http://prntscr.com/jelq0t
+* http://prntscr.com/jelqra
