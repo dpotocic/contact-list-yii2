@@ -2,9 +2,9 @@
 
 /**
  * @SWG\Swagger(
- *     basePath="/v1",
- *     host="api.customer-list.loc",
- *     schemes={"https"},
+ *     basePath="/",
+ *     host="api.contact-list.loc:8080",
+ *     schemes={"http"},
  *     produces={"application/json"},
  *     consumes={"application/json"},
  *     @SWG\Info(

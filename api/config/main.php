@@ -43,11 +43,35 @@ return [
             ],
         ],
         'urlManager' => [
+            'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
+            'showScriptName' => false,
 			'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'v1/contact',
+                    'patterns' => [
+                        'PUT,PATCH {id}' => 'update',
+                        'DELETE {id}' => 'delete',
+                        'GET,HEAD {id}' => 'view',
+                        'POST,OPTIONS' => 'create',
+                        'GET,HEAD' => 'index',
+                        'OPTIONS' => 'options',
+                        '{id}' => 'options',
+                        '' => 'options',
+                    ],
+                    'extraPatterns' => [
+                        'GET search' => 'search'
+                    ],
+                    'tokens' => [
+                        '{id}' => '<id:\\d[\\d,]*>',
+                    ],
+                ],
                 '<action:[\w\-]+>' => 'site/<action>',
                 '<controller:\w+>/<id:[\d\-]+>' => 'v1/<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:[\d\-]+>' => 'v1/<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => 'v1/<controller>/<action>',
+                '<module:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
             ],
         ],
         'request' => [

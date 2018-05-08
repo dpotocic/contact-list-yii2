@@ -41,4 +41,42 @@ class ContactFavorite extends \yii\db\ActiveRecord
             'contact_id' => 'Contact ID',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getContact()
+    {
+        return $this->hasMany(ContactPhone::className(), ['id' => 'contact_id']);
+    }
 }
+
+/**
+ *  @SWG\Definition(
+ *   definition="BaseContactFavorite",
+ *   type="object",
+ *   properties={
+ *      @SWG\Property(property="user_id", format="int32", type="integer", example="1"),
+ *      @SWG\Property(property="contact_id", format="int32", type="integer", example="1"),
+ *   }
+ *  )
+ */
+
+/**
+ *  @SWG\Definition(
+ *   definition="ContactFavorite",
+ *   type="object",
+ *   allOf={
+ *       @SWG\Schema(ref="#/definitions/BaseContactFavorite"),
+ *       @SWG\Definition(
+ *           properties={
+ *              @SWG\Property(
+ *                  property="contact",
+ *                  type="array",
+ *                      @SWG\Items(ref="#/definitions/BaseContact"),
+ *              ),
+ *          }
+ *      ),
+ *   }
+ * )
+ */

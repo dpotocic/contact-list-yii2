@@ -78,15 +78,15 @@ AppAsset::register($this);
             color: #C0C8C7;
         }
         input{
-            text-align: center;
             padding: 5px;
         }
         .main-links .header-container{
             display: block;
             margin: 0 auto;
         }
-        .main-links input{
+        #searchValue{
             width: 100%;
+            text-align: center;
         }
     </style>
     <?php $this->endBody() ?>

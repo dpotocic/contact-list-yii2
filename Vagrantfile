@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ehi/centos_7_3"
   config.vm.box_version = "1.2"
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.hostname = "api.contact-list.loc"
+  config.vm.hostname = "contact-list-demo"
   config.vbguest.auto_update = false
 
   config.vm.provider :virtualbox do |vb|

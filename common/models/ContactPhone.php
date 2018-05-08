@@ -46,4 +46,13 @@ class ContactPhone extends \yii\db\ActiveRecord
             'phone_number' => 'Phone Number',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getContact()
+    {
+        return $this->hasMany(ContactPhone::className(), ['id' => 'contact_id']);
+    }
 }
+
